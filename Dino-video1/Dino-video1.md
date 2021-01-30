@@ -14,8 +14,9 @@ Com o jogo pronto, uma outra série de vídeos mostra como fazemos para criar um
 
 1. Unity Hub instalado (https://unity3d.com/pt/get-unity/download);
 2. Alguma versão da Unity instalada;
-3. Visual Studio Code instalado (https://code.visualstudio.com/download) e configurado (https://www.youtube.com/watch?v=Ny5g3YwPT5Y);
-4. GitHub Desktop instalado (https://desktop.github.com/) e conectado a uma conta (ou conhecimentos equivalentes de `Git` para criar e fazer upload do repositório).
+3. Verificar se a versão do .NET (SDK 4.7.1)
+4. Visual Studio Code instalado (https://code.visualstudio.com/download) e configurado (https://www.youtube.com/watch?v=Ny5g3YwPT5Y);
+5. GitHub Desktop instalado (https://desktop.github.com/) e conectado a uma conta (ou conhecimentos equivalentes de `Git` para criar e fazer upload do repositório).
 
 ## Criação do Projeto
 
@@ -57,4 +58,12 @@ Com o jogo pronto, uma outra série de vídeos mostra como fazemos para criar um
 3. Abra a Unity e, na aba `Project`, clique no botão `+`, localizado na parte superior esquerda da aba;
 4. No menu suspenso, clique na opção `Folder` e nomeie a pasta como `Sprites`;
 5. Abra a pasta em que extraiu os arquivos, selecione todos, arraste e solte na Unity, dentro da pasta que acabou de criar;
+<<<<<<< Updated upstream
 6. Selecione todos os arquivos e, na aba do `Inspector`
+=======
+<<<<<<< HEAD
+
+=======
+6. Selecione todos os arquivos e, na aba do `Inspector`
+>>>>>>> 9e04c58e8ad47d810cfc37f94c46ab9bac17b9bd
+>>>>>>> Stashed changes

@@ -57,3 +57,4 @@ Com o jogo pronto, uma outra série de vídeos mostra como fazemos para criar um
 3. Abra a Unity e, na aba `Project`, clique no botão `+`, localizado na parte superior esquerda da aba;
 4. No menu suspenso, clique na opção `Folder` e nomeie a pasta como `Sprites`;
 5. Abra a pasta em que extraiu os arquivos, selecione todos, arraste e solte na Unity, dentro da pasta que acabou de criar;
+6. Selecione todos os arquivos e, na aba do `Inspector`

@@ -49,43 +49,29 @@ using UnityEngine;
 
 public class Jogador : MonoBehaviour
 {
-  public Rigidbody2D rb;
+    public Rigidbody2D rb;
 
-  public float forcaPulo = 700;
+    public float forcaPulo = 700;
 
-  public LayerMask layerChao;
-
-  public float distanciaMinimaChao = 1;
-
-  priv até bool estaNoChao;
-
-  // Start is called before the first frame Update
-  void Start()
-  {
-
-  }
-
-  // Update is called once per frame
-  void Update()
-  {
-    if (Input.GetKeyDown(KeyCode.UpArrow))
+    // Start is called before the first frame Update
+    void Start()
     {
-      Pular();
-    }
-  }
 
-  void Pular()
-  {
-    if (estaNoChao)
+    }
+
+    // Update is called once per frame
+    void Update()
     {
-      rb.AddForce(Vector2.up * forcaPulo);
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            Pular();
+        }
     }
-  }
 
-  priv até void FixedUpdate()
-  {
-    estaNoChao = Physics2D.Raycast(transform.position, Vector2.down, distanciaMinimaChao, layerChao);
-  }
+    void Pular()
+    {
+        rb.AddForce(Vector2.up * forcaPulo);
+    }
 }
 ```
 

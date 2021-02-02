@@ -238,7 +238,7 @@ Ao realizar essa alteração, note que a força que estávamos aplicando ao pulo
 
 > Altere o valor da variável `Forca Pulo` do `Jogador (Script)` para `800`, ou algo que ache interessante.
 
-![](Gravity Scale.PNG)
+![Alterando o valor do Gravity Scale](Gravity Scale.PNG)
 
 **É importante verificar se as alterações foram feitas com o `Play` acionado. Caso esteja, será necessário sair do `Play` e alterar `Forca Pulo` e `Gravity Scale` novamente, pois ao sair do `Play`, todas as modificações são desfeitas.**
 

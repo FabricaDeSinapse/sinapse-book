@@ -169,7 +169,7 @@ public class Jogador : MonoBehaviour
 
 > Em seguida, clique no `Dinossauro`, segure e arraste até `None (Rigidbody 2D)`. Com isso, o script irá reconhecer o `Rigidbody2D` que foi atrelado a ele.
 
-![](Arrastando rb Dino.PNG)
+![Adicionando a referência do Rigidbody2D ao script do Jogador](Referencia_RB_Jogador.PNG)
 
 > Salve a cena
 

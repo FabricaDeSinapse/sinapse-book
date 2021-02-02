@@ -232,8 +232,6 @@ Note que o dinossauro ainda está demorando muito para cair. Isso ocorre pois a 
 
 > Na aba `Inspector`, vá até o componente `Rigidbody 2D`, e altere o valor de `Gravity Scale` para `5`.
 
-
-
 Ao realizar essa alteração, note que a força que estávamos aplicando ao pulo não é mais suficiente para fazer com que o dinossauro chegue na mesma altura. Isso ocorre pois a força que a gravidade está exercendo é cinco vezes maior que antes. Para corrigirmos isso, basta aumentar o valor da força do pulo para algo que ache interessante.
 
 > Altere o valor da variável `Forca Pulo` do `Jogador (Script)` para `800`, ou algo que ache interessante.

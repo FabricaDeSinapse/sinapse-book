@@ -1,27 +1,31 @@
 # Melhorando Pulo
 
-O intuito deste tutorial é ajustar o pulo do Dinossauro, podemos perceber que que ao teclar a `seta para cima` ou `UpArrow` o dinossauro pula, porém ao apertar mais vezes ele continua pulando no ar. Nosso objetivo é fazer com que o dinossauro pule apenas uma vez quando está no chão, e pare de pular quando está no ar.
+Tá! Já temos o pulo funcionando, mas... percebe que quando apertamos a tecla de pular várias vezes em sequência, o dinossauro vira um foguete e vai ao infinito e além? Se fosse um jogo da NASA, tudo bem, mas como queremos reproduzir o comportamento exato do jogo oficial, precisamos corrigir isso. Partiu?
+
+Nosso objetivo é fazer com que o dinossauro possa pular apenas quando estiver no chão e bloqueie novos pulos quando estiver no ar.
+
+![To Infinity And Beyond](infinity-and-beyond.gif)
 
 ##  Código Completo
 
-Explicaremos o passo a passo para ajustar o pulo do dinossauro, caso queira testar a implementação, você pode usar o código completo, disponível a seguir.
+Ao longo dos capítulos a seguir, explicaremos o passo a passo para ajustar o pulo do dinossauro. Caso queira testar a implementação, você pode usar o código completo, disponível a seguir:
 
 ```C# 
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public class Jogador : MonoBehaviour
 {
     public Rigidbody2D rb;
+
     public float forcaPulo = 700;
 
-    public LayerMask layerchao;
+    public LayerMask layerChao;
 
     public float distanciaMinimaChao = 1;
 
-    private bool estaNochao;
+    private bool estaNoChao;
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +36,7 @@ public class Jogador : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             Pular();
         }
@@ -40,7 +44,7 @@ public class Jogador : MonoBehaviour
 
     void Pular()
     {
-        if (estaNochao)
+        if (estaNoChao)
         {
             rb.AddForce(Vector2.up * forcaPulo);
         }
@@ -48,130 +52,219 @@ public class Jogador : MonoBehaviour
 
     private void FixedUpdate()
     {
-        estaNochao = Physics2D.Raycast(transform.position, Vector2.down, distanciaMinimaChao, layerchao);
+        estaNoChao = Physics2D.Raycast(transform.position, Vector2.down, distanciaMinimaChao, layerChao);
     }
 }
-
 ```
 
 ## Explicando o código
 
-Abrindo nosso script podemos notar que já temos a linha que faz com que o dinossauro pule ```if (Input.GetKey(KeyCode.UpArrow))``` e temos a linha que adiciona força ao pulo ```rb.AddForce(Vector2.up * forcaPulo);```. Agora será necessário checar se dinossauro está no chão, e para isto, iremos criar uma linha vertical que estará localizada na base do dinossauro apontada para baixo, e quando ela colidir com o chão, irá definir que ele está no chão. E caso não colida com nada, irá definir que ele não está no chão. Mas para isto, é necessário entender o conjunto de física da Unity:
+Abrindo o script podemos notar que já temos o código que detecta quando a tecla foi pressionada e o código que adiciona uma força ao `Rigidbody`, fazendo com o que o dinossauro pule:
 
-* **RAYCAST** - Projeta um raio em uma direção, a partir de uma posição.
-* **LAYER (Camada) **- Os gameobjects são organizados em layers (Camadas).
+```c#
+void Update()
+{
+    if (Input.GetKeyDown(KeyCode.UpArrow))
+    {
+        Pular();
+    }
+}
+```
+
+Para impedir que o dinossauro pule sempre que o jogador pressionar a tecla, precisamos validar quando dinossauro está no chão antes de adicionar uma força ao corpo.
+
+Existem algumas formas de detectar se o jogador está no chão:
+
+- A primeira é utilizando o método `OnCollisionEnter` ou `OnCollisionEnter2D` que é chamado sempre que um `Collider` com `Rigidbody` encosta em outro `Collider`, mesmo que esse segundo `Collider` não tenha um `Rigidbody` associado.
+- A segunda é utilizando um `Raycast`, que desenha uma linha em uma direção e detecta se há algum `Collider` em cima dessa linha desenhada.
+
+A primeira abordagem funciona bem na maioria dos casos e geralmente é a abordagem utilizada em diversos tutoriais. Entretanto, quando utilizamos o `OnCollisionEnter`, dependemos da colisão entre os dois objetos, fazendo com que um novo pulo só esteja liberado quando o jogador de fato toca o chão.
+
+Quando estamos falando de game flow, podemos perceber que certos comportamentos ajudam o jogador a ter um fluxo de jogo que flui melhor e é mais natural. Quando liberamos um novo pulo para o jogador, mesmo que o `GameObject` ainda não esteja tocando o chão, compensamos o fato do jogador apertar a tecla um pouquinho antes de tocar o chão, fazendo com que o pulo não seja uma ação tão punitiva caso o jogador erre o tempo e pressione a tecla um pouquinho antes da colisão acontecer.
+
+Portanto, utilizaremos o`Raycast`, desenhando ele para que comece na base do dinossauro e termine um pouco embaixo dele.
+
+Essa linha irá detectar se há um objeto de chão (marcado com a layer `Chão`) próximo, definindo que o dinossauro está no chão, mesmo que não esteja encostando nele diretamente.
+
+* **Raycast** - Projeta um raio em uma direção, a partir de uma posição.
+* **Layer (Camada) **- As camadas da Unity servem para organizar os objetos, permitindo alterar, entre outras funções, a ordem de renderização e a interação do sistema de física.
 
 ## Criando uma Layer para o projeto
 
-> Para que possamos iniciar o processo de criação volte para Unity e em `SampleScene` selecione a opção `Chão`. Na guia `Inspector`, abaixo de `Chão` haverá a opção `Layer` que estará pré-definhada como `Default`, clique e selecione a opção `Add Layer` . Conforme mostrado abaixo adicione o nome Chão em `User Layer 8`.  Tecle `Enter ` e feche. Agora vá até a opção `Default` e altera para a Layer que acabamos de criar(`Chão`). 
+> Abra a `SampleScene` e selecione o `GameObject` `Chão`.
+>
+> Na aba `Inspector`, procure pela opção `Layer`, que estará com o valor definido como `Default`, e clique para abrir a lista de opções.
+>
+> Clique na opção `Add Layer`.
+>
+> Clique no input de `User Layer 8` e escreva o nome `Chão`, como mostrado na figura a seguir.
+>
+> Pressione `Enter ` para confirmar e selecione novamente o `GameObject` `Chão`.
+>
+> Em `Layer`, clique na opção `Default` e altere para a camada que acabamos de criar.
 
-![](E:\Githib\apostilas\Dino-video3\Add_Layer.PNG)
+![Add Layer](Add_Layer.PNG)
 
-Volte para o Script pois faremos fazer a checagem. O primeiro passo será: criar uma variável "`public LayerMask layerchao`". Pois queremos que esta informação seja enviada para Unity e alterar qual é a layer que representa o chão. 
+Agora que definimos a nova camada no objeto, podemos utilizá-la para detectar colisões entre o Dinossauro e o Chão.
 
-> Abaixo de `public float forcaPulo;` tecle `enter` e adicione a variável `public LayerMask layerchao;`
+## Detectando se o Jogador está no Chão
 
-```c#
-public Rigidbody2D rb;
+O primeiro passo para detectar se o Jogador está no Chão é definir qual é a layer que corresponde ao chão. Para isso, utilizaremos uma variável `public` do tipo `LayerMask`, que permite com que essa layer seja definida no `Inspector`.
 
-public float forcaPulo = 700;
-
-public LayerMask layerchao;
-```
-
-Como estamos trabalhando com física, é recomendado que estas funções sejam checadas pelo **Fixed Update**. A função **FixedUpdate**, assim como a **Update**, ele é executada constantemente. Porém, a diferença é que a função **FixedUpdate** não depende do número de FPS, nem interfere na quantidade de FPS que o jogo vai ter. Ela é sempre executada num intervalo de tempo fixo.
-
-Agora iremos adicionar uma variável que define se o dino está no chão ou não. Para isso iremos definir uma variável do tipo bool(`booleana`) que tem apenas dois valores true ou false. 
-
-> Abaixo de `public LayerMask layerchao;` tecle `Enter` e adicione a variável `private bool estaNochao;`.
-
-``````c#
-    public Rigidbody2D rb;
-
-    public float forcaPulo;
-
-    public LayerMask layerchao;
-
-    private bool estaNochao;
-``````
-
-> Continuando nossa checagem, vá até o `FixedUpdate` e após a `{`adicione  `estaNochao = Physics2D.Raycast(transform.position, Vector2.down, 2f, layerchao)`. Salve e volte para Unity.
-
-* `Physics2D`: configurações globais para a física 2D
-* `Raycast:`Projeta um raio em uma direção, a partir de uma posição.
-
-* `tranform.position`: Irá pegar a posição exata do nosso Dinossauro
-* `Vector2.down`: É o mesmo que declarar `new Vector2(0, -1)`, ou seja:
-  - Neutro no eixo X, representando sem movimentação horizontal (para os lados);
-  - Negativo no eixo Y, representando movimentação vertical para baixo.
-
-* `2f`: Será a distância que iremos testar.
+> Abra o script do `Jogador`.
+>
+> Logo abaixo da variável `forcaPulo`, declare o seguinte conteúdo:
 
 ```c#
-}
-    private void FixedUpdate()
-    {
-        estaNochao = Physics2D.Raycast(transform.position, Vector2.down, 2f, layerchao);
-    }
-}
+public LayerMask layerChao;
 ```
 
-> Voltando para Unity e selecione `Dinosauro` e na guia `Inspector` desça até `Jogador (Script)`. Perceba que `Layer Chao` está marcada como "Nothing". Selecione e altere para `Chão`.
+Como estamos trabalhando com física, é recomendado que as colisões entre `Raycast` os objetos da cena sejam declaradas no `FixedUpdate`.
 
-![](E:\Githib\apostilas\Dino-video3\LayerMask_Layerchao.PNG)
+Assim como o método `Update`, o `FixedUpdate` também é executado constantemente. Entretanto, a diferença é que o `FixedUpdate` não é executado uma vez por quadro (frames per second) e sim num intervalo de tempo fixo que consiste em uma chamada a cada 0.02 segundos, resultando em 50 chamadas por segundo.
 
-Note que neste momento a variável que criamos `estaNochao` não está aparecendo pois está pré-definida com private e a Unity não mostra as variáveis privadas por padrão.
+>  Logo após o término do método `Pular`, declare o método `FixedUpdate` da seguinte maneira:
 
->  Para tornar ela visível, no canto superior direito, em baixo de `Layout` clique nos três pontinhos e selecione a opção `Debug.`
-
-![](E:\Githib\apostilas\Dino-video3\Variável_Privada.PNG)
-
-Dê play na cena e click na janela do "Game". Perceba agora que ao teclar a seta para cima, em determinado momento a variável `Esta No Chão` é assinalada como false e em outro momento com o dinossauro no ar ela é assinalada como true. Caso queira testar, com play ativado, vá até `Rigidbody 2D`, e zere o `Gravity Scale`. Vá até a Scene e arraste o dino para cima e perceba que em certa altura o `Esta No Chão` é contabilizado, vendo isto, teremos que encontrar o valor exato em que o dino não estará mais no chão. 
-
-> Para que isto fique mais fácil, volte para o script pois iremos fazer uma alteração em nossa variável `EstaNoChão`. Altere o valor `2f` por `distanciaMinimaChao`. Voltando para parte superior do script, entre  `public LayerMask layerchao;` e ` private bool estaNochao;` adicione `public float distanciaMinimaChao = 1` . Salve e volte para Unity, Após o carregamento, verifique se a variável `DistanciaMinimaChao` foi criada.
-
-![](E:\Githib\apostilas\Dino-video3\add_DistanciaMinimaChao.PNG)
-
-
-
-Ao dar play na cena, veja que o valor que pré-definimos como (1) ainda não é o correto, pois teremos que encontra-lo manualmente. Para fazermos isto, com o play ativado, vá até `Rigidbody 2D` e zere a gravidade. Vá até a guia `Scene` e suba o dino lentamente até a altura limite em que a variável `Esta No Chao` se altera. Desça até `Jogador(Script)` e coloque o mouse em cima de `Distancia Minima Chao` e arraste lentamente para esquerda e encontre o valor que a variável `Esta No Chao` desative. No nosso caso o valor encontrado foi 0.8. 
-
-Click no play novamente para desativa-lo e altere o valor de `Distancia Minima Chao` para 0.8. Salve e volte para o Script.
-
-Agora ao invés de sempre aplicar o Add.force (rb.AddForce(Vector2.up * forcaPulo), iremos verificar se o dino está no chão ou não. 
-
-> Em cima de `rb.AddForce(Vector2.up * forcaPulo);` adicione `if (estaNochao)`. Abra e feche chaves`{}` e coloque a variável que está abaixo `(rb.AddForce(Vector2.up * forcaPulo)`, dentro destas chaves. Aperte `Ctrl + S` para ajudar o código e apague a linha que ficou sobressalente. Aperte `Ctrl+S` novamente para salvar.
-
-``````c#
+```c#
+private void FixedUpdate()
 {
-        if (estaNochao)
-        {
-            rb.AddForce(Vector2.up * forcaPulo);
-        }
+}
+```
+
+Antes de declarar o `Raycast` precisamos de um local para guardar a informação de que o Dinossauro está ou não no chão. Para isso, declaramos uma variável pública do tipo `bool`.
+
+> Logo após a variável `layerChao`, logo no começo do arquivo, declare o seguinte conteúdo:
+
+```c#
+private bool estaNoChao;
+```
+
+> Volte para o `FixedUpdate`.
+>
+> Dentro da chaves `{}`, declare o seguinte conteúdo:
+
+```c#
+private void FixedUpdate()
+{
+    estaNoChao = Physics2D.Raycast(transform.position, Vector2.down, 2f, layerChao)
+}
+```
+
+>  Salve o script.
+
+Para entender um pouco mais da declaração do `Raycast`, precisamos entender cada pedacinho individualmente:
+
+Estamos utilizando a seguinte declaração do `Raycast`:
+
+`Physics2D.Raycast(Vector3 posicao, Vector3 direcao, float distancia, LayerMask layer)`
+
+* `Physics2D`: Pacote da Unity para trabalhar com física 2D.
+* `Raycast`: Projeta um raio em uma direção, a partir de uma posição.
+* `tranform.position`: Pega a posição atual do `Transform` que está no mesmo `GameObject` que o script em questão. Nesse caso, o script `Jogador.cs` está no `GameObject` do Dinossauro, portanto, pegará a posição do Dinossauro.
+* `Vector2.down`: É o mesmo que declarar `new Vector2(0, -1)`, ou seja, `0` no eixo `X` e `-1` no eixo `Y`. Como esse argumento do `Raycast` significa a direção da linha, esses valores indicam que a linha estará apontada para baixo.
+* `2f`: O tamanho da linha.
+
+## Testando o `Raycast`
+
+> Volte para a Unity.
+>
+> Selecione o `GameObject` do Dinossauro.
+>
+> Na aba `Inspector`, procure pelo componente `Jogador (Script)`.
+>
+> Note que a variável `Layer Chao` apareceu (caso não esteja aparecendo, verifique se salvou o script ou se há erros no Console. Corrija os problemas até que a variável apareça corretamente).
+>
+> Clique na opção `Nothing` e altere para `Chao`. Isso fará com que a camada `Chao` seja definida como a camada de detecção de colisão pelo `Raycast`.
+
+![Layer Chão](LayerMask_LayerChao.PNG)
+
+Note que a variável `estaNoChao` não aparece, pois ela está definida com `private` e a Unity exibe apenas variáveis que são `public` ou que estão marcadas como `[SerializeField]`, que cobriremos em outra oportunidade.
+
+Para conseguir validar se o `Raycast` está marcando corretamente quando o Jogador está no chão, precisamos visualizar essa variável. Para visualizar o conteúdo de variáveis privadas, precisamos ativar o modo `Debug` do `Inspector`.
+
+>  Para ativar o modo `Debug` no `Inspector` vá no canto superior direito e, embaixo de `Layout`, clique nos três pontinhos e selecione a opção `Debug`, como mostrado na imagem a seguir.
+
+![Ativando o Modo Debug do Inspector](Ativando_Debug.PNG)
+
+## Visualizando se o Jogador está no Chão
+
+> Aperte o botão `Play` ou use o atalho `Ctrl + P`.
+>
+> Clique na aba `Game`.
+>
+> Pressione a tecla `UpArrow` (seta para cima) e verifique se a variável `estaNoChao` altera o valor conforme o Jogador se afasta do chão.
+
+Observe que a variável só fica com o valor `true` quando o Jogador está muito próximo do chão. Para melhorar o game flow e permitir ao game designer testar diferente combinações de valores e ajustar o melhor valor possível, é interessante colocar uma variável pública no `Inspector` que permite esse ajuste fino.
+
+> Volte para o script do `Jogador.cs`.
+>
+> Procure pela declaração do `Raycast` e altere o valor de `2f` para `distanciaMinimaChao`. Note que essa variável ainda não existe e a IDE deve mostrar um erro.
+>
+> Precisamos declarar essa variável. Vá para parte superior do script e, logo após a variável `layerChao`, declare o seguinte código:
+
+```c#
+public float distanciaMinimaChao = 1f;
+```
+
+> Salve o script e volte para Unity.
+>
+> Vá até o componente `Jogador (script)` e verifique se a variável `Distancia Minima Chao` apareceu, como mostrando na imagem a seguir:
+
+![Variável DistanciaMinimaChao](DistanciaMinimaChao.PNG)
+
+Agora basta ajustar o valor da variável para um que achar interessante, testando o jogo e validando se está com o game flow que acha interessante.
+
+No nosso caso, ajustar a distância do chão para `0.8` funcionou de uma maneira interessante. 
+
+## Integrando a variável `estaNoChao` com a ação do pulo
+
+Para finalizar o script, precisamos colocar uma checagem logo antes de realizar a ação do pulo.
+
+> No script do `Jogador.cs`, vá até o método `Pular()`.
+>
+> Em volta da declaração do `AddForce`, adicione um `if` para checar se a variável `estaNoChao` possui o valor `true`, da seguinte maneira:
+
+```c#
+void Pular()
+{
+    if (estaNoChao)
+    {
+        rb.AddForce(Vector2.up * forcaPulo);
     }
-``````
+}
+```
 
-Voltando para Unity, espere ela compilar e aperte play para testar. Perceba que ao teclar a seta para cima(Up arrow) o dino salta apenas uma vezes e não salta mais no ar. 
+> Salve o script e volte para a Unity.
+>
+> Aperte o botão `Play` e teste o novo comportamento. Note que só conseguimos realizar um novo pulo quando o Dinossauro está próximo do chão.
 
-Em nossos testes, ao saltar diversas vezes o dino rotacionou, e para tirar a rotação é bem simples.
+## Desativando a rotação do `Rigidbody`
 
-> Na parte superior direita, abaixo de `Layout`, click nos três pontinhos e selecione o modo normal.
+Em alguns casos, o Dinossauro está rotacionando logo após o pulo, fazendo com que ele caia e fique com um comportamento estranho. Uma forma de resolver isso de maneira bem simples é desativando a rotação do componente `Rigidbody`.
 
-![](E:\Githib\apostilas\Dino-video3\Desativando_Debug.PNG)
+> Primeiro, precisamos desativar o modo `Debug` do `Inspector`.
+>
+> Para isso, vá até a parte superior direita do `Inspector` e, abaixo de `Layout`, clique nos três pontinhos.
+>
+> Selecione a opção `Normal`.
 
-> Vá até `Rigidbody 2D`, click em `Constraints` e selecione a opção `Freeze Rotation (Z)`.
+![Desativando o modo Debug](Desativando_Debug.PNG)
 
-![](E:\Githib\apostilas\Dino-video3\Freeze_Rotation.PNG)
+> No `Jogador`, vá até o componente `Rigidbody 2D`.
+>
+> Clique em `Constraints` e ative a opção `Freeze Rotation (Z)`.
 
+![](Freeze_Rotation.PNG)
 
+Com isto, o Dinossauro ficará sempre na mesma rotação para o eixo `Z`.
 
-Com isto, nosso dino não irá mais rodar.
+> Salve a cena.
 
 ### Concluindo
 
-> Salve a cena e faça os últimos testes para garantir que tudo está funcionando como esperado.
+Nesse tutorial trabalhamos com algumas funções do pacote de física da Unity, aprendemos como o `Raycast` pode ser muito útil para detectar colisões entre camadas, entendemos que funções de física precisam ser declaradas no `FixedUpdate`, descobrimos uma forma de visualizar a informação de variáveis privadas e descobrimos que existem várias maneiras de realizar o mesmo comportamento, mas que algumas permitem a construção de um game flow mais interessante.
 
-Suba as modificações no `GitHub` através de um `Commit` e um `Push`, para que elas fiquem salvas na nuvem.
+Para finalizar, suba as modificações no `GitHub` para que elas fiquem salvas na nuvem e você não perca o progresso de desenvolvimento do jogo.
 
 
 

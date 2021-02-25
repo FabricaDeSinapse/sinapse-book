@@ -176,7 +176,7 @@ Estamos utilizando a seguinte declaração do `Raycast`:
 >
 > Clique na opção `Nothing` e altere para `Chao`. Isso fará com que a camada `Chao` seja definida como a camada de detecção de colisão pelo `Raycast`.
 
-![Layer Chão](LayerMask_LayerChao.PNG)
+![Layer Chao](LayerMask_LayerChao.PNG)
 
 Note que a variável `estaNoChao` não aparece, pois ela está definida com `private` e a Unity exibe apenas variáveis que são `public` ou que estão marcadas como `[SerializeField]`, que cobriremos em outra oportunidade.
 
@@ -254,7 +254,7 @@ Em alguns casos, o Dinossauro está rotacionando logo após o pulo, fazendo com 
 >
 > Clique em `Constraints` e ative a opção `Freeze Rotation (Z)`.
 
-![](Freeze_Rotation.PNG)
+![Freeze Rotation](Freeze_Rotation.PNG)
 
 Com isto, o Dinossauro ficará sempre na mesma rotação para o eixo `Z`.
 

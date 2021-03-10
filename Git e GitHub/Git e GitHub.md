@@ -114,7 +114,7 @@ Acessando a guia `History`, você tem acesso a todos os commits que foram feitos
 
 Bom, agora que já clonamos o repositório para nossa máquina(Desktop/Latop), vamos verificar a pasta dos nossos arquivos.
 
-> No canto esquerdo superior, selecione a opção `Repository`, logo em seguida selecione a opção `Show in Explorer`. Isto levara você direto para o local onde você direcionou os arquivos.
+> Na parte superior, selecione a opção `Repository`, logo em seguida selecione a opção `Show in Explorer`. Isto levara você direto para o local onde você direcionou os arquivos.
 
 ![](E:\Githib\apostilas\Git e GitHub\Pasta_desk.PNG)
 
@@ -188,3 +188,14 @@ Após entender os comando `Commit`, `Push`e `Clone`. Vamos entender um novo coma
 
 Isto fará com que as alterações feitas na nuvem sejam mostradas para o software. E logo após isso uma opção automática irá aparecer mostrando que existe um ou mais commits pendentes. Depende de quantas alterações você fez. 
 
+Selecione a opção `Pull origin`, para que as alterações sejam salvas e adicionadas a nossa máquina(Desktop/Laptop).
+
+![](E:\Githib\apostilas\Git e GitHub\Pull.PNG)
+
+Para verificar se tudo correu como o esperado, basta verificar o repositório em nossa máquina para ver se o arquivo recém criado está lá.
+
+> Na parte superior, selecione a opção `Repository`, logo em seguida selecione a opção `Show in Explorer`.
+
+## Conclusão
+
+Bom, neste tutorial nós conseguimos entender as funções do GitHub, mostrando suas funcionalidades e as facilidades no manuseio de informações que a ferramenta nos traz. 

@@ -8,7 +8,7 @@ Nesta apostila iremos explicar o que é a tecnologia Git, como ela é aplicada c
 
 Para iniciarmos será necessário a criação de um usuário para acessar a ferramenta.
 
->  Acesse o site https://github.com/, preencha os campos Username / Email / Password e clique em `Sign up for GitHub`,  automaticamente um e-mail de confirmação será enviado para sua caixa. Será necessário fazer a confirmação. 
+>  Acesse o site https://github.com/, preencha os campos Username / Email / Password e clique em `Sign up for GitHub`.  Automaticamente um e-mail de confirmação será enviado para sua caixa. Será necessário fazer a confirmação. 
 >
 > Logo após confirmar o e-mail, faça o login para iniciarmos a criação do repositório.
 
@@ -16,7 +16,8 @@ Para iniciarmos será necessário a criação de um usuário para acessar a ferr
 
 Agora com nossa conta criada e já com nosso login feito, é hora de iniciar a criação do nosso repositório. 
 
-No canto direito superior, entre o sininho e o avatar do seu perfil, clique no sinal de mais (+) e logo após selecione a opção `New Repository` .
+> No canto direito superior, entre o sininho e o avatar do seu perfil, clique no sinal de mais (+) e logo após selecione a opção `New Repository` .
+>
 
 ![](E:\Githib\apostilas\Git e GitHub\New_Repository.PNG)
 
@@ -62,7 +63,7 @@ Suponhamos que você tenha um arquivo em seu computador e precise adicionar ao s
 
 ![](E:\Githib\apostilas\Git e GitHub\Upload_files.PNG)
 
-> Após selecionar está opção, uma nova página se abrirá pedindo para você arrastar o arquivo até o local, e também te da a opção `Choose your files`, que permite que você navegue até aonde o arquivo foi salvo. 
+> Após selecionar está opção, uma nova página se abrirá pedindo para você arrastar o arquivo até o local, e a opção `Choose your files`, que permite que você navegue até aonde o arquivo foi salvo. 
 
 ![](E:\Githib\apostilas\Git e GitHub\Choose_your_files.PNG)
 

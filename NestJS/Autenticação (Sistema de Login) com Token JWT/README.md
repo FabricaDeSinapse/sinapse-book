@@ -1,9 +1,5 @@
 # Autenticação (Sistema de Login) com Token JWT
 
-## Tópicos
-
-[TOC]
-
 ## Iniciando um projeto NestJS
 
 Antes de iniciar, certifique-se de que você possui um projeto NestJS criado e que a CLI do NestJS está instalada no seu computador.

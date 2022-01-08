@@ -1,5 +1,7 @@
 # Fazendo deploy no Heroku
 
+{% embed url="https://www.youtube.com/watch?v=ZRNFhpwzN64" %}
+
 Fazer o Deploy no Heroku de uma aplicação NestJS é relativamente simples, mas com alguns pequenos detalhes que são bem importantes.
 
 Dessa vez, faremos o deploy de uma aplicação NestJS conectada a um banco de dados SQLite através do ORM Prisma.

@@ -1,5 +1,7 @@
 # Documentação automática com Swagger
 
+{% embed url="https://www.youtube.com/watch?v=fshX_252HbU" %}
+
 O Swagger (_aka_ OpenApi) é uma biblioteca muito conhecida no universo backend, estando disponível para diversas linguagens e frameworks. Ela gera um site interno no seu backend que descreve, com muitos detalhes, cada endpoint e estrutura de entidades presentes na sua aplicação.
 
 Além disso, também oferece uma interface para que a API seja testada, sem precisar de um cliente HTTP externo (_aka_ Postman, Insomnia, Thunder Client, etc) e, principalmente, com configuração ZERO!

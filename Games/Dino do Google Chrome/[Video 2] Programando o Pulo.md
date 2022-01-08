@@ -28,9 +28,9 @@ Agora é hora de abrir o editor de códigos e começar a entender como construir
  "files.trimTrailingWhitespace": true,
 ```
 
-* Note que o trecho copiado começa na `linha 2` do arquivo e termina na `linha 9`, logo antes da linha 10 que contém o trecho `"files.exclude":`;
+- Note que o trecho copiado começa na `linha 2` do arquivo e termina na `linha 9`, logo antes da linha 10 que contém o trecho `"files.exclude":`;
 
-1. Aperte o atalho `Ctrl + S` duas vezes. Uma delas será para salvar as alterações. E a segunda para ativar uma das configurações (`"editor.formatOnSave": true,`), que ajusta a formatação sempre que o arquivo é salvo.
+3. Aperte o atalho `Ctrl + S` duas vezes. Uma delas será para salvar as alterações. E a segunda para ativar uma das configurações (`"editor.formatOnSave": true,`), que ajusta a formatação sempre que o arquivo é salvo.
 
 ## Programando o Pulo
 
@@ -42,7 +42,7 @@ Explicaremos o passo a passo para construir o código do pulo, porém, caso quei
 
 > **Caso use o código completo, você deverá atribuir a referência do `Rigidbody` para que ele funcione.** Mais informações sobre isso vá na sessão em que explicamos o código.
 
-```
+```c#
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -81,8 +81,9 @@ public class Jogador : MonoBehaviour
 
 Agora iremos iniciar a configuração do pulo, mas para isso, é preciso entender duas funções:
 
-* A primeira delas é o `Start`, que é executado sempre que o jogo começa, sendo chamado uma vez para cada objeto que tenha um script.
-* A segunda é o `Update`, que é executar uma vez por quadro. Pense em um jogo de 60 FPS (60 quadros por segundo), a Unity irá executar o `Update` 60 vezes por segundo.
+- A primeira delas é o `Start`, que é executado sempre que o jogo começa, sendo chamado uma vez para cada objeto que tenha um script. 
+
+- A segunda é o `Update`, que é executar uma vez por quadro. Pense em um jogo de 60 FPS (60 quadros por segundo), a Unity irá executar o `Update` 60 vezes por segundo.
 
 Portanto, se quisermos checar sempre que uma tecla for pressionada, devemos fazer isso no `Update`, visto que essa ação precisa ser validada sempre, pois não sabemos quando o jogador a pressionará.
 
@@ -92,7 +93,7 @@ Dentro dos parênteses do `if`, o comando que detecta se o jogador pressionou um
 
 Para validar se o `if` está sendo executado corretamente, exibiremos a mensagem `"Pular"` no `console`, utilizando a declaração `Debug.Log("Pular")`:
 
-```
+```c#
 void Update()
 {
   if (Input.GetKeyDown(KeyCode.UpArrow))
@@ -104,15 +105,15 @@ void Update()
 
 > Volte para Unity, espere ela compilar o código e verificar se há algum erro. Aperte `Play` na cena e, quando o jogo iniciar, aperte a `seta para cima`. Verifique se a mensagem `"Pular"` aparece no Console.
 
-![Mensagem "Pular" no Console](../../Games/Dino%20do%20Google%20Chrome/imagens/DebugLog\_Pular.PNG)
+![Mensagem "Pular" no Console](imagens/DebugLog_Pular.PNG)
 
 > Volte para o Visual Studio Code e apague a linha `Debug.Log("Pular")` e substitua por `Pular()`. Uma mensagem de erro irá aparecer, dizendo que `O nome "Pular" não existe no contexto atual`, pois ainda não declaramos no código o que o método `Pular()` significa.
 
-![Erro ao executar o método Pular](../../Games/Dino%20do%20Google%20Chrome/imagens/Erro\_Pular.PNG)
+![Erro ao executar o método Pular](imagens/Erro_Pular.PNG)
 
 > Depois da `}` do `Update` e antes da `}` que fecha a classe `Jogador`, declare o método `Pular`, através da declaração `void Pular() {}`:
 
-```
+```c#
 using UnityEngine;
 
 public class Jogador : MonoBehaviour
@@ -135,7 +136,7 @@ Para adicionar uma força que empurre o objeto para cima, precisamos ter acesso 
 
 > Após a `{` da classe `Jogador` (na linha 6), crie duas linhas pressionando `Enter` e adicione o comando `public Rigidbody2D rb`:
 
-```
+```c#
 public class Jogador : MonoBehaviour
 {
   public Rigidbody2D rb;
@@ -144,17 +145,17 @@ public class Jogador : MonoBehaviour
 }
 ```
 
-![Código para declaração do Rigidbody](../../Games/Dino%20do%20Google%20Chrome/imagens/Public\_Rigidbody2D.PNG)
+![Código para declaração do Rigidbody](imagens/Public_Rigidbody2D.PNG)
 
 > Salve o código (`Ctrl + S`), certifique-se de que a bolinha branca ao lado do nome `Jogador.cs` sumiu e volte para a Unity.
 >
 > Na aba `Hierarchy`, selecione o `GameObject` do `Dinossauro` e, na guia `Inspector`, procure pelo componente `Jogador (Script)`, verificando se apareceu a variável `rb`. Caso não tenha aparecido, verifique se o console exibiu algum erro e confira se o seu código está correto.
 
-![Rigidbody aparecendo no Inspector](../../Games/Dino%20do%20Google%20Chrome/imagens/Rigidbody\_Inspector.PNG)
+![Rigidbody aparecendo no Inspector](imagens/Rigidbody_Inspector.PNG)
 
 > Em seguida, clique no `Dinossauro`, segure e arraste até `None (Rigidbody 2D)`. Com isso, o script irá reconhecer o `Rigidbody2D` que foi atrelado a ele.
 
-![Adicionando a referência do Rigidbody2D ao script do Jogador](../../Games/Dino%20do%20Google%20Chrome/imagens/Referencia\_RB\_Jogador.PNG)
+![Adicionando a referência do Rigidbody2D ao script do Jogador](imagens/Referencia_RB_Jogador.PNG)
 
 > Salve a cena
 
@@ -164,14 +165,16 @@ Com a referência do `Rigidbody2D` do Dinossauro feita, podemos usar a variável
 
 > Volte para o script do `Jogador`, no Visual Studio Code, e, dentro do método `Pular() {}`, adicione o comando `rb.AddForce(Vector2.up * forcaPulo)`.
 
-* `rb`: Acessar o `Rigidbody2D` do Dinossauro;
-* `AddForce`: Método que adicionar força em uma direção
-* `Vector2.up`: É o mesmo que declarar `new Vector2(0, 1)`, ou seja:
-  * Neutro no eixo X, representando sem movimentação horizontal (para os lados);
-  * Positivo no eixo Y, representando movimentação vertical para cima.
-* `* forcaPulo`: Multiplicamos a direção do movimento representada por `Vector2.up` por uma força, para que consigamos modificar a intensidade do pulo.
+- `rb`: Acessar o `Rigidbody2D` do Dinossauro;
 
-```
+- `AddForce`: Método que adicionar força em uma direção
+
+- `Vector2.up`: É o mesmo que declarar `new Vector2(0, 1)`, ou seja:
+  - Neutro no eixo X, representando sem movimentação horizontal (para os lados);
+  - Positivo no eixo Y, representando movimentação vertical para cima.
+- `* forcaPulo`: Multiplicamos a direção do movimento representada por `Vector2.up` por uma força, para que consigamos modificar a intensidade do pulo.
+
+```c#
 void Pular()
 {
     rb.AddForce(Vector2.up * forcaPulo);
@@ -180,7 +183,7 @@ void Pular()
 
 **Note que o Visual Studio Code não reconhece a variável `forcaPulo`, pois devemos declará-la no começo da classe, para que consigamos alterar pelo `Inspector` da Unity.**
 
-![Erro ao utilizar a variável forcaPulo](../../Games/Dino%20do%20Google%20Chrome/imagens/Erro\_ForcaPulo.PNG)
+![Erro ao utilizar a variável forcaPulo](imagens/Erro_ForcaPulo.PNG)
 
 Para controlar a intensidade do pulo na variável `forcaPulo`, utilizaremos o tipo `float`, que permite a inserção de números com casas decimais.
 
@@ -188,7 +191,7 @@ Para controlar a intensidade do pulo na variável `forcaPulo`, utilizaremos o ti
 >
 > Salve o script e volte para a Unity.
 
-```
+```c#
 public class Jogador : MonoBehaviour
 {
     public Rigidbody2D rb;
@@ -209,7 +212,7 @@ public class Jogador : MonoBehaviour
 >
 > Caso não tenha aparecido, verifique se salvou o código no Visual Studio Code ou se há algum erro no console.
 
-![Alterar o valor da variável forcaPulo](../../Games/Dino%20do%20Google%20Chrome/imagens/AlterarValor\_For%C3%A7aPulo.PNG)
+![Alterar o valor da variável forcaPulo](imagens/AlterarValor_ForçaPulo.PNG)
 
 Note que o dinossauro ainda está demorando muito para cair. Isso ocorre pois a gravidade do Dinossauro ainda está muito baixa, precisamos aumentá-la.
 
@@ -219,7 +222,7 @@ Ao realizar essa alteração, note que a força que estávamos aplicando ao pulo
 
 > Altere o valor da variável `Forca Pulo` do `Jogador (Script)` para `800`, ou algo que ache interessante.
 
-![Alterando o valor do Gravity Scale](../../Games/Dino%20do%20Google%20Chrome/imagens/Gravity\_Scale.PNG)
+![Alterando o valor do Gravity Scale](imagens/Gravity_Scale.PNG)
 
 **É importante verificar se as alterações foram feitas com o `Play` acionado. Caso esteja, será necessário sair do `Play` e alterar `Forca Pulo` e `Gravity Scale` novamente, pois ao sair do `Play`, todas as modificações são desfeitas.**
 

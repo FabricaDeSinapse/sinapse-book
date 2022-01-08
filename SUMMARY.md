@@ -10,6 +10,7 @@
 * [Git e GitHub](<Git e GitHub/README.md>)
   * [Introdução](<Git e GitHub/[Video 1] Introdução/README.md>)
 * [NestJS](<NestJS/README.md>)
+  * [Autenticação (Sistema de Login) com Token JWT](<NestJS/Autenticação (Sistema de Login) com Token JWT/README.md>)
   * [Documentação automática com Swagger](<NestJS/Documentação automática com Swagger/README.md>)
   * [Fazendo deploy no Heroku](<NestJS/Fazendo deploy no Heroku/README.md>)
 * [NodeJS](<NodeJS/README.md>)

@@ -1,4 +1,4 @@
-# Jogo do Dino: Movimento do Cacto e do Chão
+# Movimento do Cacto e do Chão
 
 Neste tutorial iremos adicionar os obstáculos, além de adicionar movimentação dos obstáculos e do chão.
 

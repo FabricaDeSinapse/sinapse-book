@@ -1,4 +1,4 @@
-# Jogo do Dino: Criando o Projeto e o Cenário
+# Criando o Projeto e o Cenário
 
 Bora começar a desenvolver o jogo do dinossauro do Google Chrome! Aquele joguinho que habilita quando você tá sem internet.
 

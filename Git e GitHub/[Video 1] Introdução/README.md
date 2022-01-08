@@ -1,8 +1,6 @@
-# Git e GitHub: Introdução
+# Introdução
 
-## Introdução
-
-Nesta apostila iremos explicar o que é a tecnologia Git, como ela é aplicada com os projetos na Unity. Veremos também como é feito a criação/configuração de um projeto no GitHub. A ideia é mostrar o quão importante essas ferramentas podem ser no seu dia a dia de trabalho. E para aqueles que estão começando sua carreira agora, é extremamente importante a documentação dos primeiros projetos, usando o GitHub como repositório. 
+Neste documento iremos explicar o que é a tecnologia Git, como ela é aplicada com os projetos na Unity. Veremos também como é feito a criação/configuração de um projeto no GitHub. A ideia é mostrar o quão importante essas ferramentas podem ser no seu dia a dia de trabalho. E para aqueles que estão começando sua carreira agora, é extremamente importante a documentação dos primeiros projetos, usando o GitHub como repositório. 
 
 ##  Criando a conta no GitHub
 

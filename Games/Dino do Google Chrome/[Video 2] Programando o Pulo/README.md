@@ -1,4 +1,4 @@
-# Jogo do Dino: Programando o Pulo
+# Programando o Pulo
 
 Agora é hora de abrir o editor de códigos e começar a entender como construir o pulo do personagem, utilizando a linguagem de programação C#.
 

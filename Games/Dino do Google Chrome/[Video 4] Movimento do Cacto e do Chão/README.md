@@ -1,6 +1,6 @@
-# Jogo do Dino: Adicionando Obstáculos 
+# Jogo do Dino: Movimento do Cacto e do Chão
 
-Neste tutorial iremos adicionar os obstáculos, e também adicionar movimentação aos obstáculos e ao chão.
+Neste tutorial iremos adicionar os obstáculos, além de adicionar movimentação dos obstáculos e do chão.
 
 ## Código Completo
 

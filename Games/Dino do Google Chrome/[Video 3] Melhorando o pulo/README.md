@@ -4,7 +4,7 @@ Tá! Já temos o pulo funcionando, mas... percebe que quando apertamos a tecla d
 
 Nosso objetivo é fazer com que o dinossauro possa pular apenas quando estiver no chão e bloqueie novos pulos quando estiver no ar.
 
-![To Infinity And Beyond](infinity-and-beyond.gif)
+![To Infinity And Beyond](imagens/infinity-and-beyond.gif)
 
 ##  Código Completo
 
@@ -103,7 +103,7 @@ Essa linha irá detectar se há um objeto de chão (marcado com a layer `Chão`)
 >
 > Em `Layer`, clique na opção `Default` e altere para a camada que acabamos de criar.
 
-![Add Layer](Add_Layer.PNG)
+![Add Layer](imagens/Add_Layer.PNG)
 
 Agora que definimos a nova camada no objeto, podemos utilizá-la para detectar colisões entre o Dinossauro e o Chão.
 
@@ -176,7 +176,7 @@ Estamos utilizando a seguinte declaração do `Raycast`:
 >
 > Clique na opção `Nothing` e altere para `Chao`. Isso fará com que a camada `Chao` seja definida como a camada de detecção de colisão pelo `Raycast`.
 
-![Layer Chao](LayerMask_LayerChao.PNG)
+![Layer Chao](imagens/LayerMask_LayerChao.PNG)
 
 Note que a variável `estaNoChao` não aparece, pois ela está definida com `private` e a Unity exibe apenas variáveis que são `public` ou que estão marcadas como `[SerializeField]`, que cobriremos em outra oportunidade.
 
@@ -184,7 +184,7 @@ Para conseguir validar se o `Raycast` está marcando corretamente quando o Jogad
 
 >  Para ativar o modo `Debug` no `Inspector` vá no canto superior direito e, embaixo de `Layout`, clique nos três pontinhos e selecione a opção `Debug`, como mostrado na imagem a seguir.
 
-![Ativando o Modo Debug do Inspector](Ativando_Debug.PNG)
+![Ativando o Modo Debug do Inspector](imagens/Ativando_Debug.PNG)
 
 ## Visualizando se o Jogador está no Chão
 
@@ -210,7 +210,7 @@ public float distanciaMinimaChao = 1f;
 >
 > Vá até o componente `Jogador (script)` e verifique se a variável `Distancia Minima Chao` apareceu, como mostrando na imagem a seguir:
 
-![Variável DistanciaMinimaChao](DistanciaMinimaChao.PNG)
+![Variável DistanciaMinimaChao](imagens/DistanciaMinimaChao.PNG)
 
 Agora basta ajustar o valor da variável para um que achar interessante, testando o jogo e validando se está com o game flow que acha interessante.
 
@@ -248,13 +248,13 @@ Em alguns casos, o Dinossauro está rotacionando logo após o pulo, fazendo com 
 >
 > Selecione a opção `Normal`.
 
-![Desativando o modo Debug](Desativando_Debug.PNG)
+![Desativando o modo Debug](imagens/Desativando_Debug.PNG)
 
 > No `Jogador`, vá até o componente `Rigidbody 2D`.
 >
 > Clique em `Constraints` e ative a opção `Freeze Rotation (Z)`.
 
-![Freeze Rotation](Freeze_Rotation.PNG)
+![Freeze Rotation](imagens/Freeze_Rotation.PNG)
 
 Com isto, o Dinossauro ficará sempre na mesma rotação para o eixo `Z`.
 

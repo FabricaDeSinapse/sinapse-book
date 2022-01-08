@@ -105,11 +105,11 @@ void Update()
 
 > Volte para Unity, espere ela compilar o código e verificar se há algum erro. Aperte `Play` na cena e, quando o jogo iniciar, aperte a `seta para cima`. Verifique se a mensagem `"Pular"` aparece no Console.
 
-![Mensagem "Pular" no Console](DebugLog_Pular.PNG)
+![Mensagem "Pular" no Console](imagens/DebugLog_Pular.PNG)
 
 > Volte para o Visual Studio Code e apague a linha `Debug.Log("Pular")` e substitua por `Pular()`. Uma mensagem de erro irá aparecer, dizendo que `O nome "Pular" não existe no contexto atual`, pois ainda não declaramos no código o que o método `Pular()` significa.
 
-![Erro ao executar o método Pular](Erro_Pular.PNG)
+![Erro ao executar o método Pular](imagens/Erro_Pular.PNG)
 
 > Depois da `}` do `Update` e antes da `}` que fecha a classe `Jogador`, declare o método `Pular`, através da declaração `void Pular() {}`:
 
@@ -145,17 +145,17 @@ public class Jogador : MonoBehaviour
 }
 ```
 
-![Código para declaração do Rigidbody](Public_Rigidbody2D.PNG)
+![Código para declaração do Rigidbody](imagens/Public_Rigidbody2D.PNG)
 
 > Salve o código (`Ctrl + S`), certifique-se de que a bolinha branca ao lado do nome `Jogador.cs` sumiu e volte para a Unity.
 >
 > Na aba `Hierarchy`, selecione o `GameObject` do `Dinossauro` e, na guia `Inspector`, procure pelo componente `Jogador (Script)`, verificando se apareceu a variável `rb`. Caso não tenha aparecido, verifique se o console exibiu algum erro e confira se o seu código está correto.
 
-![Rigidbody aparecendo no Inspector](Rigidbody_Inspector.PNG)
+![Rigidbody aparecendo no Inspector](imagens/Rigidbody_Inspector.PNG)
 
 > Em seguida, clique no `Dinossauro`, segure e arraste até `None (Rigidbody 2D)`. Com isso, o script irá reconhecer o `Rigidbody2D` que foi atrelado a ele.
 
-![Adicionando a referência do Rigidbody2D ao script do Jogador](Referencia_RB_Jogador.PNG)
+![Adicionando a referência do Rigidbody2D ao script do Jogador](imagens/Referencia_RB_Jogador.PNG)
 
 > Salve a cena
 
@@ -183,7 +183,7 @@ void Pular()
 
 **Note que o Visual Studio Code não reconhece a variável `forcaPulo`, pois devemos declará-la no começo da classe, para que consigamos alterar pelo `Inspector` da Unity.**
 
-![Erro ao utilizar a variável forcaPulo](Erro_ForcaPulo.PNG)
+![Erro ao utilizar a variável forcaPulo](imagens/Erro_ForcaPulo.PNG)
 
 Para controlar a intensidade do pulo na variável `forcaPulo`, utilizaremos o tipo `float`, que permite a inserção de números com casas decimais.
 
@@ -212,7 +212,7 @@ public class Jogador : MonoBehaviour
 >
 > Caso não tenha aparecido, verifique se salvou o código no Visual Studio Code ou se há algum erro no console.
 
-![Alterar o valor da variável forcaPulo](AlterarValor_ForçaPulo.PNG)
+![Alterar o valor da variável forcaPulo](imagens/AlterarValor_ForçaPulo.PNG)
 
 Note que o dinossauro ainda está demorando muito para cair. Isso ocorre pois a gravidade do Dinossauro ainda está muito baixa, precisamos aumentá-la.
 
@@ -222,7 +222,7 @@ Ao realizar essa alteração, note que a força que estávamos aplicando ao pulo
 
 > Altere o valor da variável `Forca Pulo` do `Jogador (Script)` para `800`, ou algo que ache interessante.
 
-![Alterando o valor do Gravity Scale](Gravity_Scale.PNG)
+![Alterando o valor do Gravity Scale](imagens/Gravity_Scale.PNG)
 
 **É importante verificar se as alterações foram feitas com o `Play` acionado. Caso esteja, será necessário sair do `Play` e alterar `Forca Pulo` e `Gravity Scale` novamente, pois ao sair do `Play`, todas as modificações são desfeitas.**
 

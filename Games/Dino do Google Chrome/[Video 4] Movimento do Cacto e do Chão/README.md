@@ -29,7 +29,7 @@ Inicialmente vá até a Unity, pois  iremos separar as imagens dos obstáculos p
 
 > Vá até `Project` > Clique na pasta `Assets` > Selecione a pasta `Sprites` > Selecione `CactosFinos`.
 
-![](E:\Githib\apostilas\Dino-video4\Select_Cactos_Finos.PNG)
+![](imagens/Select_Cactos_Finos.PNG)
 
 
 
@@ -37,17 +37,17 @@ Após executar os passos acima, será necessário separar os cactos que estão j
 
 > Selecione `CactosFinos` > Vá até a guia `Inspector`> Desça até `Sprite Mode ` > Selecione a opção `Multiple` > Desça e clique em `Apply` > Selecione a opção `Sprite Editor`.
 
-![](E:\Githib\apostilas\Dino-video4\Sprite_Mode.PNG)
+![](imagens/Sprite_Mode.PNG)
 
 > Uma tela com 6 cactos será aberta, clique em `Slice` > Altere o `Type` de Automatic para Grid By Cell Count > No campo `Column & Row` altere o valor de `C` que estará como 1 para 3 > Clique em `Slice`
 
 Isto fara com que nossa imagem seja divida em 3 partes iguais.
 
-![](E:\Githib\apostilas\Dino-video4\Sprites_Editor.PNG)
+![](imagens/Sprites_Editor.PNG)
 
 > Voltando para tela inicial da Unity verifique se a divisão da imagem foi feita corretamente em Sprites. Expandindo `CactosFinos` verifique se as imagens (CactosFinos_0, CactosFinos_1 e CactosFinos_2) foram criadas. Clique em `CactosFinos_0` e arraste até `SampleScene`.
 
-![](E:\Githib\apostilas\Dino-video4\Sample_Scene.PNG)
+![](imagens/Sample_Scene.PNG)
 
 Após executar este passo, perceba que o cacto foi levado até a nossa cena, porém a escala das imagens estão diferentes. Nosso Dino está muito maior que cacto. Será necessário fazer a alteração da escala do Cacto. 
 
@@ -55,13 +55,13 @@ As dimensões da imagem do nosso Dino são 761x94, e as dimensões da imagem do 
 
 > Selecione `CactosFinos_0` > Vá até a guia `Inspector` > Em `Transform` desça até a opção `Scale` e altere os valores de X,Y e Z para 2.68.
 
-![](E:\Githib\apostilas\Dino-video4\Scale_Cacto.PNG)
+![](imagens/Scale_Cacto.PNG)
 
 Antes de iniciar nosso código iremos fazer uma pequena alteração em nosso chão, deixando ele mais alinhado com o cacto e com o Dino.
 
 > Vá até a guia `Hierarchy` > clique em `Chão` e vá até nossa `Scene` > Use a tecla `W` para usar o modo de movimentação e alinhe o Chão com os pés do Dino.
 
-![](E:\Githib\apostilas\Dino-video4\Alinhando_Chão.PNG)
+![](imagens/Alinhando_Chão.PNG)
 
 
 
@@ -115,7 +115,7 @@ Já na Unity espere compilar os dados e verifique se o script está funcionando 
 
 > Vá até `Inspector` e desça até `Movimentação` iremos adicionar os valores para que nosso cacto se movimente. Com o `Play` desativado, altere o valor de X para -1. O -1 fará com o cacto se mova para esquerda. E altere a velocidade para 3. 
 
-![](E:\Githib\apostilas\Dino-video4\Alteracao_valores.PNG)
+![](imagens/Alteracao_valores.PNG)
 
 > Dê play na cena e verifique a movimentação do Cacto. Caso ele esteja muito perto do Dino, selecione `CactosFinos_0` > Vá até a `Scene` e arraste o cacto levemente para direita. Desta forma você irá pode verificar melhor a movimentação do cacto.
 

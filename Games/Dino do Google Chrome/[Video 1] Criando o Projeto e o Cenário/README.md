@@ -8,7 +8,7 @@ Ao final dessa série de tutoriais, você saberá como publicar o jogo online na
 
 Com o jogo pronto, uma outra série de vídeos mostra como fazemos para criar uma inteligência artificial que aprenderá a jogar o jogo do dino melhor do que qualquer ser humano!
 
-![Imagem do Jogo](image-20210124150234720.png)
+![Imagem do Jogo](imagens/image-20210124150234720.png)
 
 ## Pré-requisitos
 
@@ -28,7 +28,7 @@ Com o jogo pronto, uma outra série de vídeos mostra como fazemos para criar um
 6. Em `Location`, escolha um local para a pasta, de preferência um caminho curto, como `C:\GitHub`;
 7. Clique no botão `Create`.
 
-![Criação do projeto](image-20210124150604196.png)
+![Criação do projeto](imagens/image-20210124150604196.png)
 
 ## Criando um repositório do projeto no GitHub
 
@@ -40,7 +40,7 @@ Com o jogo pronto, uma outra série de vídeos mostra como fazemos para criar um
 6. Opcionalmente, em `License`, selecione a opção `MIT License`;
 7. Clique no botão `Create`.
 
-![Criação do repositório](image-20210124151250132.png)
+![Criação do repositório](imagens/image-20210124151250132.png)
 
 1. Assim que terminar a criação do repositório, na parte superior central da tela, clique em `Publish repository`;
 2. Opcionalmente, caso queira deixar o projeto público, desmarque a caixinha `Keep this code private`;
@@ -53,7 +53,7 @@ Com o jogo pronto, uma outra série de vídeos mostra como fazemos para criar um
     - https://drive.google.com/file/d/1exKktXjKR56FCsxHqR9gclssfeRXMVmW/view
 2. Extraia os arquivos em uma pasta separada;
 
-![Arquivos iniciais](image-20210124151841439.png)
+![Arquivos iniciais](imagens/image-20210124151841439.png)
 
 3. Abra a Unity e, na aba `Project`, clique no botão `+`, localizado na parte superior esquerda da aba;
 4. No menu suspenso, clique na opção `Folder` e nomeie a pasta como `Sprites`;

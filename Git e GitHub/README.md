@@ -19,7 +19,7 @@ Agora com nossa conta criada e já com nosso login feito, é hora de iniciar a c
 > No canto direito superior, entre o sininho e o avatar do seu perfil, clique no sinal de mais (+) e logo após selecione a opção `New Repository` .
 >
 
-![](E:\Githib\apostilas\Git e GitHub\New_Repository.PNG)
+![](imagens/New_Repository.PNG)
 
 Já na página do novo repositório, iremos preencher e selecionar algumas informações.
 
@@ -45,7 +45,7 @@ Para entendermos de forma simples o conceito do GitHub iremos criar um arquivo d
 
 > Com o diretório aberto iremos clicar na seguinte opção: `creating a new file`.
 
-![](E:\Githib\apostilas\Git e GitHub\creating_a_new_file.PNG)
+![](imagens/creating_a_new_file.PNG)
 
 Agora será necessário informar alguns dados referente ao seu arquivo. O primeiro deles é o nome, e logo abaixo temos o a aba `Edit new file` onde iremos colocar o conteúdo do nosso arquivo. Ao lado da aba `Edit new file`, temos aba `Preview` que permite que você pré-visualize como ficou o conteúdo escrito em seu arquivo.
 
@@ -61,11 +61,11 @@ Suponhamos que você tenha um arquivo em seu computador e precise adicionar ao s
 >
 > Em seu repositório existe a opção `Add file`, ela nos da as opções `Create new file` que serve para criar um novo arquivo, e a opção `Upload files` que usaremos para fazer o Upload do arquivo. 
 
-![](E:\Githib\apostilas\Git e GitHub\Upload_files.PNG)
+![](imagens/Upload_files.PNG)
 
 > Após selecionar está opção, uma nova página se abrirá pedindo para você arrastar o arquivo até o local, e a opção `Choose your files`, que permite que você navegue até aonde o arquivo foi salvo. 
 
-![](E:\Githib\apostilas\Git e GitHub\Choose_your_files.PNG)
+![](imagens/Choose_your_files.PNG)
 
 Automaticamente o GitHub fará o upload do arquivo e mostrará com o nome que você salvou abaixo da tela acima.
 
@@ -97,13 +97,13 @@ Agora que já temos o software instalado, é hora de aprender a copiar os arquiv
 
 > Selecione o repositório que criamos e clique em `clone +(nome do seu projeto)`.
 
-![](E:\Githib\apostilas\Git e GitHub\Clone_Rep.PNG)
+![](imagens/Clone_Rep.PNG)
 
 Após executar a função clone, uma nova aba será aberta informando a URL onde o repositório está sendo salvo, e também o local onde os arquivos serão salvos.
 
 > Selecione o local em sua máquina(Desktop/Laptop) onde irá salvar os arquivos. Clique em clone.
 
-![](E:\Githib\apostilas\Git e GitHub\Diretorio.PNG)
+![](imagens/Diretorio.PNG)
 
 Agora você possui os arquivos criados no repositório em sua máquina(Desktop/Latop). 
 
@@ -117,7 +117,7 @@ Bom, agora que já clonamos o repositório para nossa máquina(Desktop/Latop), v
 
 > Na parte superior, selecione a opção `Repository`, logo em seguida selecione a opção `Show in Explorer`. Isto levara você direto para o local onde você direcionou os arquivos.
 
-![](E:\Githib\apostilas\Git e GitHub\Pasta_desk.PNG)
+![](imagens/Pasta_desk.PNG)
 
 ## Modificando os arquivos no computador
 
@@ -127,7 +127,7 @@ Com a pasta do repositório aberta, iremos fazer algumas modificações nos arqu
 
 Voltando para o GitHub Desktop ao lado `History`, clique em Changes. Note as marcações exibidas após as alterações realizadas.
 
-![](E:\Githib\apostilas\Git e GitHub\Regis_modif.PNG)
+![](imagens/Regis_modif.PNG)
 
 No nosso caso, o arquivo `teste.txt` foi excluído e fizemos uma alteração no arquivo `novo_arquivo`. 
 
@@ -145,7 +145,7 @@ Ao realizar o commit, volte para guia `History`. Note que um commit foi criado, 
 
 > Para isto clique em `Push origin`. Isto fará as alterações serem enviadas para nuvem.
 
-![](E:\Githib\apostilas\Git e GitHub\Push.PNG)
+![](imagens/Push.PNG)
 
 ## Visualizando o repositório na nuvem
 
@@ -153,25 +153,25 @@ Feito isto, agora iremos visualizar como as alterações ficaram na nuvem.
 
 > No canto superior esquerdo, clique em `Repository`, e selecione a opção `View on GitHub`. Ou se preferir utilize o atalho(Ctrl + Shift + G)
 
-![](E:\Githib\apostilas\Git e GitHub\View_on_Git.PNG)
+![](imagens/View_on_Git.PNG)
 
 Perceba que ao abrir a nuvem, nossos 3 commits foram realizados.
 
-![](E:\Githib\apostilas\Git e GitHub\Regis_commit.PNG)
+![](imagens/Regis_commit.PNG)
 
 > E ao clicar em `3 commits` selecione um dos nossos arquivos criados. Após selecionar o arquivo selecione a opção `Browse files`.
 
-![](E:\Githib\apostilas\Git e GitHub\Browse_files.PNG)
+![](imagens/Browse_files.PNG)
 
 Está opção permite que a gente visualize o repositório exatamente na hora em que fizemos este commit. Praticamente uma habilidade de voltar no tempo. Perceba que ao realizar esta função, na barra de endereços foi gerado um código, logo após do endereço do nosso repositório na nuvem.
 
-![](E:\Githib\apostilas\Git e GitHub\HASH.PNG)
+![](imagens/HASH.PNG)
 
 Este código é chamado de HASH. HASH nada mais é do que uma chave gerada automaticamente cada vez que você realiza um commit. É possível também realizar o download do repositório completo neste momento que selecionamos. 
 
 > Basta clicar em `Code` e selecionar a opção `Download ZIP`.
 
-![](E:\Githib\apostilas\Git e GitHub\Code.PNG)
+![](imagens/Code.PNG)
 
 Pronto, agora nos temos o repositório completo do momento exato que escolhemos voltar. 
 
@@ -185,13 +185,13 @@ Após entender os comando `Commit`, `Push`e `Clone`. Vamos entender um novo coma
 
 > Voltando ao GitHub Desktop, perceba que nosso arquivo criado não foi adicionado no software. Para que este arquivo seja clonado para nossa máquina(Desktop/Laptop), na parte superior da tela selecione a opção `Fetch origin`.
 
-![](E:\Githib\apostilas\Git e GitHub\Fetch.PNG)
+![](imagens/Fetch.PNG)
 
 Isto fará com que as alterações feitas na nuvem sejam mostradas para o software. E logo após isso uma opção automática irá aparecer mostrando que existe um ou mais commits pendentes. Depende de quantas alterações você fez. 
 
 Selecione a opção `Pull origin`, para que as alterações sejam salvas e adicionadas a nossa máquina(Desktop/Laptop).
 
-![](E:\Githib\apostilas\Git e GitHub\Pull.PNG)
+![](imagens/Pull.PNG)
 
 Para verificar se tudo correu como o esperado, basta verificar o repositório em nossa máquina para ver se o arquivo recém criado está lá.
 

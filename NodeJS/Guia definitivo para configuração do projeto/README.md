@@ -1,4 +1,4 @@
-# Configuração ambiente NodeJS
+# Configuração de ambiente NodeJS
 
 ## Criação do projeto
 

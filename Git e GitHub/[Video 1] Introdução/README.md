@@ -1,6 +1,6 @@
 # Introdução
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/0hJzCkqtnXQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+https://youtu.be/0hJzCkqtnXQ
 
 Neste documento iremos explicar o que é a tecnologia Git, como ela é aplicada com os projetos na Unity. Veremos também como é feito a criação/configuração de um projeto no GitHub. A ideia é mostrar o quão importante essas ferramentas podem ser no seu dia a dia de trabalho. E para aqueles que estão começando sua carreira agora, é extremamente importante a documentação dos primeiros projetos, usando o GitHub como repositório. 
 

@@ -1,5 +1,7 @@
 # Programando o Pulo
 
+{% embed url="https://www.youtube.com/watch?v=4atSWURceho" %}
+
 Agora é hora de abrir o editor de códigos e começar a entender como construir o pulo do personagem, utilizando a linguagem de programação C#.
 
 ## Criação do Script

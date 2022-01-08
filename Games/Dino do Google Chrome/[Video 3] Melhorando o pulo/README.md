@@ -1,5 +1,7 @@
 # Melhorando o pulo
 
+{% embed url="https://www.youtube.com/watch?v=YfnXexftm8c" %}
+
 Tá! Já temos o pulo funcionando, mas... percebe que quando apertamos a tecla de pular várias vezes em sequência, o dinossauro vira um foguete e vai ao infinito e além? Se fosse um jogo da NASA, tudo bem, mas como queremos reproduzir o comportamento exato do jogo oficial, precisamos corrigir isso. Partiu?
 
 Nosso objetivo é fazer com que o dinossauro possa pular apenas quando estiver no chão e bloqueie novos pulos quando estiver no ar.

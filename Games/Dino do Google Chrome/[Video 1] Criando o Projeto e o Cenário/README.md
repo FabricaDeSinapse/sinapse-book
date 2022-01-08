@@ -1,5 +1,7 @@
 # Criando o Projeto e o Cenário
 
+{% embed url="https://www.youtube.com/watch?v=t4AJQ6LwSVo" %}
+
 Bora começar a desenvolver o jogo do dinossauro do Google Chrome! Aquele joguinho que habilita quando você tá sem internet.
 
 Nesse tutorial você vai criar o projeto na Unity, subir na sua conta do GitHub, importar os arquivos iniciais e construir o cenário base do jogo.

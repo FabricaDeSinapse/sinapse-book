@@ -11,6 +11,6 @@
   * [Introdução](<Git e GitHub/[Video 1] Introdução/README.md>)
 * [NestJS](<NestJS/README.md>)
   * [Documentação automática com Swagger](<NestJS/Documentação automática com Swagger/README.md>)
-  * [Fazendo deploy com Heroku](<NestJS/Fazendo deploy com Heroku/README.md>)
+  * [Fazendo deploy no Heroku](<NestJS/Fazendo deploy no Heroku/README.md>)
 * [NodeJS](<NodeJS/README.md>)
   * [Configuração de ambiente NodeJS](<NodeJS/Guia definitivo para configuração do projeto/README.md>)

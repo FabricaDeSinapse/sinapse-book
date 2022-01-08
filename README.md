@@ -16,4 +16,5 @@ Você também pode contribuir melhorando, corrigindo e sugerindo novos conteúdo
 Para fazer isso, existem duas formas:
 
 1 - Direto pelo GitBook, abra a página do documento que quer editar e clique em `Edit on GitHub`.
+
 2 - Acesse o [repositório no GitHub](https://github.com/FabricaDeSinapse/sinapse-book), abra qualquer documento e clique no lápis para editar. Ao salvar isso, um Pull Request será submetido para que a revisão das modificações seja feita.

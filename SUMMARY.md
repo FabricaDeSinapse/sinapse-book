@@ -14,4 +14,4 @@
   * [Documentação automática com Swagger](<NestJS/Documentação automática com Swagger/README.md>)
   * [Fazendo deploy no Heroku](<NestJS/Fazendo deploy no Heroku/README.md>)
 * [NodeJS](<NodeJS/README.md>)
-  * [Configuração de ambiente NodeJS](<NodeJS/Guia definitivo para configuração do projeto/README.md>)
+  * [Template de projeto](<NodeJS/Template de projeto/README.md>)

@@ -1,6 +1,4 @@
-# Fazendo deploy no Heroku
-
-{% embed url="https://www.youtube.com/watch?v=ZRNFhpwzN64" %}
+# NestJS - Deploy Heroku
 
 Fazer o Deploy no Heroku de uma aplicação NestJS é relativamente simples, mas com alguns pequenos detalhes que são bem importantes.
 
@@ -74,7 +72,7 @@ Certifique-se de que o arquivo `main.js`, que foi compilado a partir do arquivo 
 
 ##### Alguns exemplos de estrutura da pasta `dist`
 
-![Localização do arquivo main.js](imagens/estrutura-main-ts.png)
+![Localização do arquivo main.js](images/estrutura-main-ts.png)
 
 ### Garantindo que a pasta `dist` está sempre atualizada
 
@@ -88,7 +86,7 @@ Certifique-se de que o arquivo `main.js`, que foi compilado a partir do arquivo 
     // ...
     "scripts": {
         // ...
-        "heroku-postbuild": "npm install --only=dev --no-shrinkwrap && npm run build"
+        "heroku-postbuild": "NODE_ENV=dev npm install --omit --no-shrinkwrap && npm run build"
     }
 }
 ```

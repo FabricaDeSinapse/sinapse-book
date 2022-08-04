@@ -16,4 +16,4 @@
 * [NodeJS](<NodeJS/README.md>)
   * [Template de projeto](<NodeJS/Template de projeto/README.md>)
 * [TypeScript](<TypeScript/README.md>)
-  * [Criando um projeto em TypeScript](<TypeScript/Criando um projeto em TypeScript/README.md>)
+  * [Criando um projeto em TypeScript](<TypeScript/Criando um projeto em Typescript/README.md>)

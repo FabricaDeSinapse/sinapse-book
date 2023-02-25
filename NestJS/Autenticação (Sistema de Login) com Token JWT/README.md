@@ -599,7 +599,7 @@ export class LoginRequestBody {
 ##### `src/auth/models/UserFromJwt.ts`
 
 ```typescript
-export class UserFromJwt {
+export interface UserFromJwt {
   id: number;
   email: string;
   name: string;
